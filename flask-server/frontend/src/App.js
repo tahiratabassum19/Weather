@@ -161,160 +161,7 @@
 //           <p>Temperature: {hour.temperature_2m}</p>
 //           <p>Precipitation: {hour.precipitation}</p>
 //           <p>Wind Speed: {hour.windspeed_10m}</p>
-//         </div>
-//       ));
-//     } else {
-//       return <div>Loading weather data...</div>;
-//     }
-//   };
 
-//   return (
-//     <div>
-//       {data ? (
-//         <div>
-//           <h2>Weather Report:</h2>
-//           <div className="weather-container">{renderWeatherReport()}</div>
-//         </div>
-//       ) : (
-//         <div>Loading data...</div>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
-
-
-
-//this worked for only one hour output 
-
-
-// import React, { useState, useEffect } from "react";
-
-// function App() {
-//   const [weather, setWeather] = useState(null);
-
-//   useEffect(() => {
-//     fetchData();
-//   }, []);
-
-//   const fetchData = async () => {
-//     try {
-//       const response = await fetch("http://localhost:5000/members");
-//       const jsonData = await response.json();
-//       setWeather(jsonData);
-//     } catch (error) {
-//       console.log("Error fetching weather data:", error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       {weather ? (
-//         <div>
-//           <h2>Weather Report</h2>
-//           <p>Temperature: {weather.temperature}</p>
-//           <p>Precipitation: {weather.precipitation}</p>
-//           <p>Wind Speed: {weather.wind_speed2m}</p>
-//         </div>
-//       ) : (
-//         <div>Loading weather data...</div>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
-
-
-
-
-
-//tries form input text 
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// const App = () => {
-//   const [city, setCity] = useState('');
-
-//   const handleGetWeather = async () => {
-//     try {
-//       const response = await axios.post("http://localhost:5000/members", { city });
-
-//       if (response.status === 200) {
-//         console.log('City name sent to the backend successfully.');
-//       } else {
-//         console.error('Error sending the city name to the backend.');
-//       }
-//     } catch (error) {
-//       console.error('Error:', error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//     <form>
-//       <input
-//         type="text"
-//         value={city}
-//         onChange={(e) => setCity(e.target.value)}
-//         placeholder="Enter city"
-//       />
-//       <button onClick={handleGetWeather}>Get Weather</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default App;
-
-
-
-
-
-
-//trying 7 days now 
-
-
-// import React, { useEffect, useState } from 'react';
-
-// function App() {
-//   const [hourlyTemperatures, setHourlyTemperatures] = useState([]);
-
-//   useEffect(() => {
-//     // Fetch weather data from the backend
-//     fetch('/member')
-//       .then(response => response.json())
-//       .then(data => {
-//         const temperatures = data.hourly.temperature_2m;
-//         setHourlyTemperatures(temperatures);
-//       })
-//       .catch(error => {
-//         console.log('Error fetching weather data:', error);
-//       });
-//   }, []);
-
-//   return (
-//     <div>
-//       <h1>Hourly Temperature Report</h1>
-//       <div className="hourly-temperatures">
-//         {hourlyTemperatures.map((temperature, index) => (
-//           <div key={index} className="hourly-temperature">
-//             {temperature}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;
 
 import React from 'react';
 import HourlyReport from './hourly';
@@ -324,8 +171,10 @@ import './App.css'
 function App() {
   return (
     <div  className='background-container'>
-      <h1>Weather App</h1>
-      <h2>Hourly Report </h2>
+      <h1 className='weather'>Weather App</h1>
+
+      <h3 className='City'> New York 🌞</h3>
+      <h2 className='hourly-report'>Hourly Report </h2>
       <HourlyReport />
       <AirQuality/>
     </div>

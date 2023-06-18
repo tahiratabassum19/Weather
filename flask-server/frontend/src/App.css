@@ -1,4 +1,26 @@
 .background-container {
-  background-color: #73ae358b;
+  background-color: skyblue;
+  background-image: url(https://media.istockphoto.com/id/824800468/photo/sun-on-blue-sky-with-clouds.webp?b=1&s=170667a&w=0&k=20&c=rVSwIECCenLv_NYV76uQQdhc1VwOSkPqoIjHuqNu_sw=);
   padding: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.hourly-report{
+  text-align: center;
+
+
+
+}
+
+.weather{
+
+  font-size: 50px;
+
+}
+
+.City{
+  font-size: 30px;
+
 }

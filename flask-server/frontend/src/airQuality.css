@@ -1,6 +1,11 @@
 .air-quality-container {
     text-align: center;
   }
+
+  .air-text{
+
+    font-weight: bold;
+  }
   
   .chart {
     max-width: 600px;
@@ -16,7 +21,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
     border-radius: 3px;
-    padding: 6px 8px;
+    padding: px 8px;
     font-size: 12px;
   }
   

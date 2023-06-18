@@ -30,7 +30,7 @@ function AirQuality() {
               label: 'Air Quality',
               data: aqiValues,
               backgroundColor: 'rgba(75, 192, 192, 0.4)',
-              borderColor: 'rgba(75, 192, 192, 1)',
+              borderColor: 'rgba(255, 255, 0, 0.6)',
             },
           ],
         };
@@ -47,6 +47,7 @@ function AirQuality() {
     return <div>Loading...</div>;
   }
 
+ 
   const chartOptions = {
     scales: {
       x: {
@@ -60,6 +61,20 @@ function AirQuality() {
         ticks: {
           autoSkip: true,
           maxTicksLimit: 10,
+          color: 'black',
+          font: {
+            size: 14,
+            weight: 'bold',
+          },
+        },
+      },
+      y: {
+        ticks: {
+          color: ['red','yellow','orange'],
+          font: {
+            size: 14,
+            weight: 'bold',
+          },
         },
       },
     },
@@ -90,7 +105,7 @@ function AirQuality() {
 
   return (
     <div className="air-quality-container">
-      <h2>Air Quality Line Chart</h2>
+      <h2 className='air-text'>Air Quality Line Chart</h2>
       <div className="chart">
         <Line data={chartData} options={chartOptions} />
       </div>

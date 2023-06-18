@@ -6,14 +6,12 @@ from geopy.geocoders import Nominatim
 
 app=Flask(__name__)
 CORS(app)
-@app.route("/members",methods=['GET','POST'])
+@app.route("/hourly",methods=['GET','POST'])
 def members():
-    # if request.method=='POST':
-    #     city=request.form.get('city')
-    #     print (city)
+    #if request.method=='POST':
     
     city = "New York"  # Hardcoded city name
-    
+
     geolocator = Nominatim(user_agent="flask-server")
     city_location = geolocator.geocode(city)
 
@@ -24,7 +22,7 @@ def members():
 
 
     # this is for 7 days 
-    url= f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m,precipitation,windspeed_10m&temperature_unit=fahrenheit"
+    url= f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m,precipitation,windspeed_10m&temperature_unit=fahrenheit&timezone=America%2FNew_York"
 
 
     #url="https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,precipitation,windspeed_10m&temperature_unit=fahrenheit&forecast_days=1"
@@ -58,11 +56,9 @@ def members():
 
 @app.route("/airQuality",methods=['GET','POST'])
 def airQuality():
-    # if request.method=='POST':
-    #     city=request.form.get('city')
-    #     print (city)
+  
     
-    city = "New York"  # Hardcoded city name
+    city = "New York" 
     
     geolocator = Nominatim(user_agent="flask-server")
     city_location = geolocator.geocode(city)

@@ -1,0 +1,43 @@
+.air-quality-container {
+    text-align: center;
+  }
+  
+  .chart {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .chart canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .chart .chartjs-tooltip {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 3px;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  
+  .chart .chartjs-tooltip-key {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+  }
+  
+  .chart .chartjs-tooltip-label {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .chart .chartjs-tooltip-body {
+    display: flex;
+    align-items: center;
+  }
+  
+  .chart .chartjs-tooltip-body span {
+    white-space: nowrap;
+  }
+  

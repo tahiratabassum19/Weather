@@ -318,15 +318,21 @@
 
 import React from 'react';
 import HourlyReport from './hourly';
+import AirQuality from './airQuality';
+import './App.css'
 
 function App() {
   return (
-    <div>
+    <div  className='background-container'>
       <h1>Weather App</h1>
       <h2>Hourly Report </h2>
       <HourlyReport />
+      <AirQuality/>
     </div>
   );
 }
+
+
+
 
 export default App;

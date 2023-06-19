@@ -16,4 +16,9 @@
     background-color: #f9f907;
     text-align: center;
   }
-  
+  .temperature{
+     
+    font-weight: bold;
+    font-size: 20px;
+
+  }

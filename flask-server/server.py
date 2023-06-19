@@ -79,13 +79,87 @@ def airQuality():
 
     return jsonify(airQuality)
 
+
+# News API 
+
+
+
+@app.route("/news")
+
+
+def news_head():
+    city = "New York" 
+   # reverse geocoding to get the country from city to get the news api 
+    geolocator = Nominatim(user_agent="flask-server")
+    city_location = geolocator.geocode(city)
+
+
+    latitude = city_location.latitude
+    longitude = city_location.longitude
+    location = geolocator.reverse(str(latitude) + "," + str(longitude))
+    address = location.raw['address']
+    country = address.get('country', '')
+    country_code = address.get('country_code')
+ 
+
+    weather_words = [
+    'Storm', 'Rain', 'Thunderstorm', 'Tornado', 'Hurricane', 'Typhoon', 'Flood', 'Snow', 'Blizzard',
+    'Hail', 'Heatwave', 'Cold', 'Wind', 'Drought', 'Monsoon', 'Fog', 'Temperature', 'Climate', 
+    'Meteorology', 'Weather forecast', 'Sunshine', 'Clouds', 'Drizzle', 'Sleet', 'Gale', 'Cyclone', 
+    'Mist', 'Rainfall', 'Precipitation', 'Humidity', 'Chill', 'Thaw', 'Rainbow', 'Whirlwind', 'Downpour',
+    'Freezing', 'Barometer', 'Tropical', 'Aurora', 'Tremor', 'Heat index', 'Gusty', 'Overcast', 'Pollen',
+    'Forecasting', 'UV Index', 'Heatstroke', 'Wet', 'Dry', 'Visibility', 'Dew', 'Squall', 'Muggy', 'Celsius',
+    'Fahrenheit', 'Pressure', 'Anemometer', 'Arctic', 'Anticyclone', 'Monsoon', 'Gust', 'Calm', 'Drizzle',
+    'Jet stream', 'Cirrus', 'Cumulus', 'Stratus', 'Cyclonic', 'Supercell', 'El Niño', 'La Niña', 'Cirrocumulus',
+    'Cumulonimbus', 'Stratocumulus', 'Nimbostratus', 'Haboob', 'Breeze', 'Solar radiation', 'Thermometer',
+    'Wind chill', 'Ceiling', 'Haze', 'Visibility', 'Rain gauge', 'Hygrometer', 'Evaporation', 'Atmosphere',
+    'Isobar', 'Swell', 'Zephyr', 'Sunrise', 'Sunset', 'Aurora borealis', 'Aurora australis', 'Trade winds',
+    'Sea breeze', 'Land breeze', 'Advection', 'Coriolis effect', 'Monsoonal flow', 'Beaufort scale', 'Troposphere',
+    'Stratosphere', 'Mesosphere', 'Thermosphere', 'Exosphere', 'Polar vortex', 'Air pressure', 'Weather balloon']
+    
+
+    weather_wordsl = [word.lower() for word in weather_words]
+
+
+    url_news="https://newsapi.org/v2/top-headlines?country=us&apiKey=c0ea415cc7e44662af5c610f6088c5f9" 
+
+    news=requests.get(url_news).json()
+
+
+    #print(news)  
+    
+
+
+
+    found_articles = []
+
+    for article in news["articles"]:
+        title = article["title"].lower()
+        # description = article["description"].lower()
+        # content = article["content"].lower()
+
+        if any(word in title for word in weather_wordsl):
+            url_to_image = article["urlToImage"]
+            url = article["url"]
+            published_at = article["publishedAt"]
+
+            found_article = {
+                "urlToImage": url_to_image,
+                "url": url,
+                "publishedAt": published_at
+            }
+
+            found_articles.append(found_article)
+        else:
+            return "No News"
+            #print(found_articles)
+
+    return jsonify(found_articles)
+
+        
+
 if __name__=="__main__":
     app.run(debug=False)
-
-
-
-
-
 
 
 

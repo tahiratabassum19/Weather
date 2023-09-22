@@ -1,9 +1,10 @@
 .background-container {
   background-color: skyblue;
-  background-image: url(https://media.istockphoto.com/id/824800468/photo/sun-on-blue-sky-with-clouds.webp?b=1&s=170667a&w=0&k=20&c=rVSwIECCenLv_NYV76uQQdhc1VwOSkPqoIjHuqNu_sw=);
+ /* background-image: url(https://media.istockphoto.com/id/824800468/photo/sun-on-blue-sky-with-clouds.webp?b=1&s=170667a&w=0&k=20&c=rVSwIECCenLv_NYV76uQQdhc1VwOSkPqoIjHuqNu_sw=);*/
   padding: 20px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 
 }
 

@@ -18,20 +18,37 @@ const News = () => {
     fetchData();
   }, []);
 
+  const rows = [];
+  let row = [];
+
+  articles.forEach((article, index) => {
+    row.push(
+      <div key={index} className="article">
+        <img src={article.urlToImage} alt={article.title} />
+        <h3>{article.title}</h3>
+        <a href={article.url} target="_blank" rel="noopener noreferrer">Read More</a>
+      </div>
+    );
+
+    if (row.length === 3 || index === articles.length - 1) {
+      rows.push(
+        <div key={index} className="article-row">
+          {row}
+        </div>
+      );
+      row = [];
+    }
+  });
   return (
     <div>
       <h2 className='headline'>News Headlines</h2>
       {articles.length === 0 ? (
         <p className='no_article'>No weather news articles found today.</p>
       ) : (
-        articles.map((article, index) => (
-          <div key={index}>
-            <h3>{article.title}</h3>
-            <p>{article.url}</p>
-            <img src={article.urlToImage} alt={article.title} />
-          </div>
-        ))
-      )}
+        <div>
+        {rows}
+        </div>
+  )}
     </div>
   );
 };

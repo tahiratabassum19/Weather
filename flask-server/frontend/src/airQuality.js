@@ -15,7 +15,6 @@ ChartJS.register(LineElement, PointElement);
 function AirQuality() {
   const [airData, setAirData] = useState(null);
   const [chartData, setChartData] = useState(null);
-
   useEffect(() => {
     fetch('http://localhost:5000/airQuality')
       .then(response => response.json())

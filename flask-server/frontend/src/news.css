@@ -7,3 +7,32 @@ font-size: 50px;
 
     font-size: 50px;
 }
+
+.article-row {
+
+display: flex;
+justify-content: space-between;
+margin-bottom: 20px;
+}
+
+.article {
+flex-basis: calc(33.33% - 20px); /* Adjust the width to give some space between articles */
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+.article img {
+max-width: 100%;
+height: auto;
+}
+
+.article h3 {
+font-size: 18px;
+margin-bottom: 5px;
+}
+
+.article a {
+display: block;
+color: #007bff;
+}

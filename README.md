@@ -5,9 +5,9 @@ We created a multipurpose weather app, which allows user to input a city name to
 
 -----
 
-![Hourly Weather](./weather_1)
-![Airquality](./weather_2)
-![News](./weather_3)
+![Hourly Weather](./weather_1.png)
+![Airquality](./weather_2.png)
+![News](./weather_3.png)
 
 
 
